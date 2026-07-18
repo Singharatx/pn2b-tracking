@@ -1,45 +1,52 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Kanit } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const kanit = Kanit({
+  subsets: ["thai", "latin"],
+  weight: [
+    "300",
+    "400",
+    "500",
+    "600",
+    "700",
+    "800",
+  ],
+  variable: "--font-kanit",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "PN2B | ตรวจสอบพัสดุ",
+  title: {
+    default: "PN2B | เช็กสถานะพัสดุ",
+    template: "%s | PN2B",
+  },
+
   description:
-    "ระบบตรวจสอบพัสดุออนไลน์ของ PN2B รองเท้ามือสอง รองรับ Flash Express, J&T Express, KEX, DHL และไปรษณีย์ไทย",
+    "ระบบตรวจสอบสถานะพัสดุสำหรับลูกค้าร้านพี่น้องสองบี รองเท้ามือสอง",
+
+  applicationName: "PN2B Tracking",
 
   keywords: [
     "PN2B",
-    "ตรวจสอบพัสดุ",
     "เช็กพัสดุ",
-    "Flash Express",
+    "ตรวจสอบพัสดุ",
+    "รองเท้ามือสอง",
+    "Flash",
     "J&T",
     "KEX",
     "DHL",
     "ไปรษณีย์ไทย",
   ],
 
-  applicationName: "PN2B Tracking",
-
   icons: {
     icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
   },
 
   openGraph: {
-    title: "PN2B | ตรวจสอบพัสดุ",
+    title: "PN2B | เช็กสถานะพัสดุ",
     description:
-      "ระบบตรวจสอบพัสดุออนไลน์ของ PN2B รองเท้ามือสอง",
+      "ระบบตรวจสอบสถานะพัสดุสำหรับลูกค้าร้านพี่น้องสองบี รองเท้ามือสอง",
     siteName: "PN2B Tracking",
     locale: "th_TH",
     type: "website",
@@ -48,17 +55,9 @@ export const metadata: Metadata = {
         url: "/images/logo.png",
         width: 512,
         height: 512,
-        alt: "PN2B Logo",
+        alt: "PN2B",
       },
     ],
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title: "PN2B | ตรวจสอบพัสดุ",
-    description:
-      "ระบบตรวจสอบพัสดุออนไลน์ของ PN2B รองเท้ามือสอง",
-    images: ["/images/logo.png"],
   },
 };
 
@@ -68,13 +67,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="th"
-      className={`${geistSans.variable} ${geistMono.variable}`}
-    >
-      <body className="min-h-screen bg-gray-50 text-gray-900 antialiased">
-        {children}
-      </body>
+    <html lang="th" className={kanit.variable}>
+      <body>{children}</body>
     </html>
   );
 }
