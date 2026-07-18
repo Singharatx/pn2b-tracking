@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080808">
+    <meta name="description" content="PN2B Tracking ศูนย์กลางตรวจสอบสถานะพัสดุจากบริษัทขนส่งชั้นนำ">
+    <title>PN2B Tracking | ติดตามพัสดุ</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700;800&amp;family=Prompt:wght@400;500;600&amp;display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">ข้ามไปยังเนื้อหาหลัก</a>
+
+    <header class="navbar">
+        <div class="site-shell nav-inner">
+            <a href="#home" class="logo" aria-label="PN2B Tracking หน้าแรก">
+                <img src="assets/logo.png" alt="PN2B" width="1563" height="1563">
+            </a>
+
+            <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="เปิดเมนู">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav id="siteNav" aria-label="เมนูหลัก">
+                <ul>
+                    <li><a href="#home">หน้าแรก</a></li>
+                    <li><a href="#howto">วิธีใช้งาน</a></li>
+                    <li><a href="#tracking">ติดตามพัสดุ</a></li>
+                    <li><a href="#contact">ติดต่อร้าน</a></li>
+                </ul>
+            </nav>
+
+            <a href="#tracking" class="nav-cta">เช็คพัสดุ</a>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="hero" id="home" aria-labelledby="hero-title">
+            <div class="hero-grid" aria-hidden="true"></div>
+            <div class="hero-orb hero-orb-one" aria-hidden="true"></div>
+            <div class="hero-orb hero-orb-two" aria-hidden="true"></div>
+            <div class="hero-light" aria-hidden="true"></div>
+            <div class="hero-particles" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+
+            <div class="site-shell hero-content">
+                <div class="hero-copy">
+                    <img src="assets/logo.png" class="hero-logo" alt="PN2B Tracking" width="1563" height="1563">
+                    <p class="eyebrow"><span></span> PREMIUM PARCEL TRACKING</p>
+                    <h1 id="hero-title">PN2B <span>TRACKING</span></h1>
+                    <p class="hero-description">ศูนย์กลางตรวจสอบสถานะพัสดุ<br>ร้านพี่น้องสองบี รองเท้ามือสอง</p>
+                </div>
+
+                <div class="tracking-stage" id="tracking" aria-label="ติดตามพัสดุ">
+                    <div class="tracking-box">
+                        <label class="sr-only" for="trackingNumber">กรอกเลขพัสดุของคุณ</label>
+                        <div class="tracking-input-wrap">
+                            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="7"></circle>
+                                <path d="m20 20-3.5-3.5"></path>
+                            </svg>
+                            <input type="text" id="trackingNumber" placeholder="กรอกเลขพัสดุของคุณ" autocomplete="off" autocapitalize="characters" spellcheck="false">
+                        </div>
+                        <button id="trackBtn" type="button">
+                            <span>เช็คพัสดุ</span>
+                            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14"></path>
+                                <path d="m13 6 6 6-6 6"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <p class="tracking-security"><span aria-hidden="true">✓</span> ข้อมูลของคุณปลอดภัย เราไม่เก็บข้อมูลเลขพัสดุของคุณ</p>
+                    <div id="detectCourier" class="tracking-status" role="status" aria-live="polite" aria-atomic="true"></div>
+                </div>
+
+                <div class="carrier-selection">
+                    <p class="carrier-selection-label">เลือกบริษัทขนส่งเพื่อเริ่มติดตาม</p>
+                    <div class="hero-couriers" role="group" aria-label="เลือกบริษัทขนส่ง">
+                        <img src="assets/couriers/thailandpost.png" alt="Thailand Post" data-courier="th" role="button" tabindex="0" aria-pressed="false" width="225" height="225">
+                        <img src="assets/couriers/flash.png" alt="Flash Express" data-courier="flash" role="button" tabindex="0" aria-pressed="false" width="225" height="225">
+                        <img src="assets/couriers/jt.png" alt="J&amp;T Express" data-courier="jt" role="button" tabindex="0" aria-pressed="false" width="3840" height="2160">
+                        <img src="assets/couriers/kex.png" alt="KEX Express" data-courier="kex" role="button" tabindex="0" aria-pressed="false" width="2048" height="2048">
+                        <img src="assets/couriers/dhl.png" alt="DHL Express" data-courier="dhl" role="button" tabindex="0" aria-pressed="false" width="501" height="501">
+                    </div>
+                    <p class="courier-note" id="selectedCourier">เลือกบริษัทขนส่งก่อนกดเช็คพัสดุ</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="howto section" id="howto" aria-labelledby="howto-title">
+            <div class="site-shell">
+                <div class="section-heading">
+                    <p class="eyebrow"><span></span> SIMPLE &amp; FAST</p>
+                    <h2 id="howto-title">ติดตามพัสดุได้ง่าย<br><span>ใน 4 ขั้นตอน</span></h2>
+                    <p>ทุกขั้นตอนออกแบบมาให้คุณตรวจสอบสถานะพัสดุได้อย่างรวดเร็วและมั่นใจ</p>
+                </div>
+
+                <ol class="steps" aria-label="ขั้นตอนการติดตามพัสดุ">
+                    <li class="step">
+                        <span class="step-number">01</span>
+                        <div><h3>กรอกเลขพัสดุ</h3><p>นำเลข Tracking ที่ได้รับจากร้านมากรอกในช่องค้นหา</p></div>
+                    </li>
+                    <li class="step">
+                        <span class="step-number">02</span>
+                        <div><h3>เลือกระบบขนส่ง</h3><p>เลือกบริษัทขนส่งที่รับผิดชอบพัสดุของคุณ</p></div>
+                    </li>
+                    <li class="step">
+                        <span class="step-number">03</span>
+                        <div><h3>กดเช็คพัสดุ</h3><p>ระบบจะพาคุณไปยังหน้าติดตามของผู้ให้บริการ</p></div>
+                    </li>
+                    <li class="step">
+                        <span class="step-number">04</span>
+                        <div><h3>ติดตามสถานะ</h3><p>ดูความเคลื่อนไหวของพัสดุได้ทันทีจากบริษัทขนส่ง</p></div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="couriers section" id="couriers" aria-labelledby="couriers-title">
+            <div class="site-shell">
+                <div class="section-heading section-heading-row">
+                    <div>
+                        <p class="eyebrow"><span></span> TRUSTED NETWORK</p>
+                        <h2 id="couriers-title">รองรับขนส่ง<br><span>ชั้นนำของไทย</span></h2>
+                    </div>
+                    <p>เชื่อมต่อการติดตามกับบริษัทขนส่งที่ลูกค้าไว้วางใจ เพื่อให้ทุกการรอคอยเป็นเรื่องง่ายขึ้น</p>
+                </div>
+
+                <div class="courier-grid">
+                    <article class="courier-card"><img src="assets/couriers/thailandpost.png" alt="Thailand Post" loading="lazy" width="225" height="225"><h3>Thailand Post</h3><p>ไปรษณีย์ไทย</p></article>
+                    <article class="courier-card"><img src="assets/couriers/flash.png" alt="Flash Express" loading="lazy" width="225" height="225"><h3>Flash Express</h3><p>ฟลัช เอ็กซ์เพรส</p></article>
+                    <article class="courier-card"><img src="assets/couriers/jt.png" alt="J&amp;T Express" loading="lazy" width="3840" height="2160"><h3>J&amp;T Express</h3><p>เจแอนด์ที เอ็กซ์เพรส</p></article>
+                    <article class="courier-card"><img src="assets/couriers/kex.png" alt="KEX Express" loading="lazy" width="2048" height="2048"><h3>KEX Express</h3><p>เคอีเอ็กซ์ เอ็กซ์เพรส</p></article>
+                    <article class="courier-card"><img src="assets/couriers/dhl.png" alt="DHL Express" loading="lazy" width="501" height="501"><h3>DHL Express</h3><p>ดีเอชแอล เอ็กซ์เพรส</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact section" id="contact" aria-labelledby="contact-title">
+            <div class="site-shell">
+                <div class="section-heading contact-heading">
+                    <p class="eyebrow"><span></span> WE ARE HERE TO HELP</p>
+                    <h2 id="contact-title">ต้องการความช่วยเหลือ?<br><span>ติดต่อเราได้ทุกช่องทาง</span></h2>
+                </div>
+
+                <div class="contact-grid">
+                    <a href="https://linevoom.line.me/user/_db7nWEmoJfNZQq9RkF1gLMCBtwGGty4XQtTkS1c" class="contact-card line-card" target="_blank" rel="noopener noreferrer" aria-label="LINE OA เปิดในแท็บใหม่">
+                        <span class="contact-icon" aria-hidden="true">L</span><div><p>LINE OA</p><h3>@pn2b</h3></div><span class="contact-arrow" aria-hidden="true">→</span>
+                    </a>
+                    <a href="https://www.facebook.com/share/1BZAmdeHMz/" class="contact-card facebook-card" target="_blank" rel="noopener noreferrer" aria-label="Facebook เปิดในแท็บใหม่">
+                        <span class="contact-icon" aria-hidden="true">f</span><div><p>Facebook</p><h3>PN2B รองเท้ามือสอง</h3></div><span class="contact-arrow" aria-hidden="true">→</span>
+                    </a>
+                    <a href="https://www.tiktok.com/@peenong2b_v2?_r=1&amp;_t=ZS-988h0rqC0Lw" class="contact-card tiktok-card" target="_blank" rel="noopener noreferrer" aria-label="TikTok เปิดในแท็บใหม่">
+                        <span class="contact-icon" aria-hidden="true">♪</span><div><p>TikTok</p><h3>พี่น้องสองบี</h3></div><span class="contact-arrow" aria-hidden="true">→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="site-shell footer-grid">
+            <div class="footer-brand">
+                <a href="#home" class="footer-logo" aria-label="PN2B Tracking หน้าแรก"><img src="assets/logo.png" alt="PN2B" width="1563" height="1563"></a>
+                <p>ศูนย์กลางตรวจสอบสถานะพัสดุ<br>ร้านพี่น้องสองบี รองเท้ามือสอง</p>
+            </div>
+            <div class="footer-links"><h2>เมนู</h2><a href="#home">หน้าแรก</a><a href="#howto">วิธีใช้งาน</a><a href="#tracking">ติดตามพัสดุ</a></div>
+            <div class="footer-links"><h2>ติดต่อเรา</h2><a href="https://linevoom.line.me/user/_db7nWEmoJfNZQq9RkF1gLMCBtwGGty4XQtTkS1c" target="_blank" rel="noopener noreferrer">LINE OA</a><a href="https://www.facebook.com/share/1BZAmdeHMz/" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.tiktok.com/@peenong2b_v2?_r=1&amp;_t=ZS-988h0rqC0Lw" target="_blank" rel="noopener noreferrer">TikTok</a></div>
+        </div>
+        <div class="footer-bottom"><div class="site-shell"><p>© 2026 PN2B Tracking. All rights reserved.</p><p>PREMIUM PARCEL TRACKING</p></div></div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
